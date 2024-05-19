@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "./globals.css";
 
 import Navbar from "@/components/navbar";
+import GlobalContextProvider from "./contexts/GlobalContext";
+import "./globals.css";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -20,11 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={roboto.className}>
-        <Navbar />
-        {children}
-      </body>
-    </html>
+    <GlobalContextProvider>
+      <html lang="en">
+        <body className={roboto.className}>
+          <Navbar />
+          {children}
+        </body>
+      </html>
+    </GlobalContextProvider>
   );
 }

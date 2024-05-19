@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.link-hover {
+  @apply hover:text-red-600 transition after:content-[''] after:block after:h-[2px] after:rounded-md after:mx-auto after:w-0 after:bg-red-600 hover:after:w-full after:transition-all;
+}
